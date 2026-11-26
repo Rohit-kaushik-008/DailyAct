@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>DailyAct — Calm Productivity, Tasks, Calendar & Habit Tracker</title>
+    <meta
+      name="description"
+      content="DailyAct is a minimalist, nature-inspired productivity workspace combining task management with priority and difficulty tracking, important calendar notes, and point-based habit tracking."
+    />
+    <meta
+      name="keywords"
+      content="DailyAct, to-do app, habit tracker, productivity dashboard, minimalist calendar, task manager"
+    />
+    <meta name="author" content="DailyAct" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#F4F7F3" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0F1713" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="DailyAct — Calm Productivity & Habit Tracker" />
+    <meta
+      property="og:description"
+      content="Organize daily tasks, track positive and negative habit points, and mark important dates in a serene daytime or nighttime nature workspace."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('dailyact_theme');
+          if (saved === 'dark') {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

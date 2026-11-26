@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 112 24% 96%;
+    --foreground: 148 22% 14%;
+
+    --card: 110 33% 99%;
+    --card-foreground: 148 22% 14%;
+
+    --popover: 110 33% 99%;
+    --popover-foreground: 148 22% 14%;
+
+    --primary: 147 28% 34%;
+    --primary-foreground: 110 35% 98%;
+
+    --secondary: 124 22% 90%;
+    --secondary-foreground: 147 28% 22%;
+
+    --muted: 120 18% 92%;
+    --muted-foreground: 145 14% 37%;
+
+    --accent: 132 26% 87%;
+    --accent-foreground: 148 30% 20%;
+
+    --destructive: 6 48% 48%;
+    --destructive-foreground: 0 0% 99%;
+
+    --border: 125 18% 85%;
+    --input: 125 18% 83%;
+    --ring: 147 28% 38%;
+
+    --radius: 0.85rem;
+
+    /* DailyAct semantic nature accents */
+    --nature-positive-bg: 138 35% 91%;
+    --nature-positive-fg: 147 36% 28%;
+    --nature-warning-bg: 38 68% 92%;
+    --nature-warning-fg: 32 58% 34%;
+    --nature-danger-bg: 6 55% 93%;
+    --nature-danger-fg: 6 50% 42%;
+    --nature-info-bg: 185 35% 91%;
+    --nature-info-fg: 188 38% 31%;
+  }
+
+  .dark {
+    --background: 150 22% 7%;
+    --foreground: 135 20% 92%;
+
+    --card: 150 21% 11%;
+    --card-foreground: 135 20% 92%;
+
+    --popover: 150 22% 10%;
+    --popover-foreground: 135 20% 92%;
+
+    --primary: 145 34% 58%;
+    --primary-foreground: 152 28% 9%;
+
+    --secondary: 148 18% 17%;
+    --secondary-foreground: 135 20% 88%;
+
+    --muted: 148 16% 16%;
+    --muted-foreground: 140 14% 66%;
+
+    --accent: 148 22% 20%;
+    --accent-foreground: 135 25% 92%;
+
+    --destructive: 6 58% 58%;
+    --destructive-foreground: 150 20% 8%;
+
+    --border: 148 16% 20%;
+    --input: 148 16% 22%;
+    --ring: 145 34% 58%;
+
+    /* DailyAct semantic nature accents (nighttime) */
+    --nature-positive-bg: 146 32% 17%;
+    --nature-positive-fg: 145 45% 70%;
+    --nature-warning-bg: 36 38% 17%;
+    --nature-warning-fg: 38 72% 68%;
+    --nature-danger-bg: 6 38% 18%;
+    --nature-danger-fg: 6 68% 72%;
+    --nature-info-bg: 186 32% 17%;
+    --nature-info-fg: 186 48% 68%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', Inter, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: background-color 0.35s ease, color 0.3s ease;
+    min-height: 100vh;
+    overflow-x: clip;
+  }
+}

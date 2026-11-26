@@ -1,0 +1,129 @@
+/* DailyAct — Separate custom stylesheet for nature ambiance, animations, and layout integrity */
+
+/* Subtle organic ambient canvas gradient (daytime mist vs nighttime canopy) */
+.dailyact-shell {
+  position: relative;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 75% 45% at 15% -5%, rgba(126, 173, 140, 0.14), transparent 70%),
+    radial-gradient(ellipse 65% 40% at 88% 8%, rgba(168, 201, 165, 0.12), transparent 65%);
+}
+
+.dark .dailyact-shell {
+  background-image:
+    radial-gradient(ellipse 75% 45% at 15% -5%, rgba(76, 134, 98, 0.13), transparent 70%),
+    radial-gradient(ellipse 65% 40% at 88% 8%, rgba(56, 102, 86, 0.11), transparent 65%);
+}
+
+/* Smooth theme surface transition */
+.dailyact-surface {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.25s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Smooth left-to-right strikethrough + gentle fade for completed tasks */
+.task-strike-text {
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 56%;
+  background-size: 0% 1.5px;
+  transition:
+    background-size 0.38s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.42s ease,
+    color 0.35s ease;
+}
+
+.task-strike-text[data-completed='true'] {
+  background-size: 100% 1.5px;
+  opacity: 0.52;
+  color: hsl(var(--muted-foreground));
+}
+
+.task-meta-faded {
+  transition: opacity 0.4s ease;
+}
+
+.task-meta-faded[data-completed='true'] {
+  opacity: 0.56;
+}
+
+/* Semantic nature badges */
+.badge-nature-positive {
+  background-color: hsl(var(--nature-positive-bg));
+  color: hsl(var(--nature-positive-fg));
+}
+
+.badge-nature-warning {
+  background-color: hsl(var(--nature-warning-bg));
+  color: hsl(var(--nature-warning-fg));
+}
+
+.badge-nature-danger {
+  background-color: hsl(var(--nature-danger-bg));
+  color: hsl(var(--nature-danger-fg));
+}
+
+.badge-nature-info {
+  background-color: hsl(var(--nature-info-bg));
+  color: hsl(var(--nature-info-fg));
+}
+
+/* Accessible focus ring consistency */
+.dailyact-focus:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Safe-area padding for tablet & mobile bottom navigation */
+.bottom-nav-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+/* Minimalist custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.45);
+}
+
+/* Lenis smooth scroll base adjustments */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .task-strike-text,
+  .task-meta-faded,
+  .dailyact-surface,
+  body {
+    transition-duration: 0.01ms !important;
+  }
+}
